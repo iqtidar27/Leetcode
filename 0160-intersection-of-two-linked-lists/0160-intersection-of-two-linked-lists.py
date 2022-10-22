@@ -6,6 +6,7 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        #TC: O(m+n)
         #Constant Space
         pA = headA
         pB = headB
