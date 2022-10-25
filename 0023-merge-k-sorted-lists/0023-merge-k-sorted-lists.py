@@ -5,6 +5,22 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        minHeap = []
+        
+        for single_list in lists:
+            while single_list:
+                minHeap.append(single_list.val)
+                single_list = single_list.next
+        
+        heapq.heapify(minHeap)
+        dummy = ListNode(-1)
+        head = dummy
+        while minHeap:
+            head.next = ListNode(heapq.heappop(minHeap))
+            head = head.next
+        
+        return dummy.next
+        '''
         #O(nlogK)
         def mergeList(list1, list2):
             dummy = ListNode(-1)
@@ -39,3 +55,5 @@ class Solution:
         
         return lists[0]
                 
+        '''
+        
