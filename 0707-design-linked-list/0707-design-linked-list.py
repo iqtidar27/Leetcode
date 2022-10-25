@@ -1,0 +1,70 @@
+def __init__(self, x):
+        self.val = x
+        self.next = None
+class MyLinkedList:
+
+    def __init__(self):
+        self.size = 0
+        self.head = ListNode(-1)
+
+    def get(self, index: int) -> int:
+        if index < 0 or index >= self.size:
+            return -1
+        
+        curr = self.head
+        for i in range(index + 1):
+            curr = curr.next
+            
+        return curr.val
+
+    def addAtHead(self, val: int) -> None:
+        curr = self.head
+        to_add = ListNode(val)
+        self.size += 1
+        to_add.next = curr.next
+        curr.next = to_add
+
+    def addAtTail(self, val: int) -> None:
+        curr = self.head
+        
+        for i in range(self.size):
+            curr = curr.next
+        
+        to_add = ListNode(val)
+        self.size += 1
+        to_add.next = curr.next
+        curr.next = to_add
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index < 0 or index > self.size:
+            return
+        if index == 0:
+            self.addAtHead(val)
+        elif index == self.size:
+            self.addAtTail(val)
+        else:
+            curr = self.head
+            for i in range(index):
+                curr = curr.next
+            to_add = ListNode(val)
+            self.size += 1
+            to_add.next = curr.next
+            curr.next = to_add
+
+    def deleteAtIndex(self, index: int) -> None:
+        if index < 0 or index >= self.size:
+            return
+        
+        curr = self.head
+        for i in range(index):
+            curr = curr.next
+        
+        self.size -= 1
+        curr.next = curr.next.next
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
