@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
+        #Two pass solution
         if not head.next:
             return head
         
@@ -20,7 +21,7 @@ class Solution:
         dummy = ListNode(-1, head)
         curr = head
         prev = dummy
-        print(dic)
+        #print(dic)
         
         while curr:
             if dic[curr.val] > 1:
