@@ -5,6 +5,23 @@
 #         self.next = next
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        #One pass algorithm
+        slow = head
+        fast = head
+        
+        for i in range(k-1):
+            fast = fast.next
+        
+        first = fast
+        
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+            
+        first.val, slow.val = slow.val, first.val
+        
+        return head
+        '''
         #Two pass algorithm
         
         p = head
@@ -28,3 +45,5 @@ class Solution:
         p.val, r.val = r.val, p.val
         
         return head
+        '''
+        
