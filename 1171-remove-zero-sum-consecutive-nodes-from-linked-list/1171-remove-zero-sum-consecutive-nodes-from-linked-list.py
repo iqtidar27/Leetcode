@@ -13,7 +13,7 @@ class Solution:
         m = {}
         dummy = ListNode(0)
         dummy.next=head
-        m[0]=dummy
+        m = {0:dummy}
         prefixsum = 0
         while head is not None:
             prefixsum+=head.val
