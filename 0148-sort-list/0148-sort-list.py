@@ -5,6 +5,9 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #TC: O(nlogn)
+        #SC: O(logn)
+        
         def findMid(node):
             
             slow = node
