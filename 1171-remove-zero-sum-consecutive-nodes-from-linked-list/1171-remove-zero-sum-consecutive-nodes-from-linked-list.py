@@ -17,14 +17,14 @@ class Solution:
         prefixsum = 0
         while head is not None:
             prefixsum+=head.val
-            if prefixsum in m.keys():
+            if prefixsum in m:
                 start = m[prefixsum]
-                sum = prefixsum
-                while start is not None and start is not head:
+                sumset = prefixsum
+                while start is not None and start != head:
                     start = start.next
-                    sum+=start.val
-                    if start is not head:
-                        m.pop(sum)
+                    sumset +=start.val
+                    if start != head:
+                        m.pop(sumset)
 
 
                 m[prefixsum].next=head.next
